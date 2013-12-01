@@ -1,5 +1,6 @@
 Realbarber::Application.routes.draw do
 
+  devise_for :users
   get '/about'    => 'high_voltage/pages#show', id: 'about'
   get '/contact'  => 'high_voltage/pages#show', id: 'contact'
   get '/privacy'  => 'high_voltage/pages#show', id: 'privacy'
