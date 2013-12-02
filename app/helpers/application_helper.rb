@@ -1,5 +1,7 @@
 module ApplicationHelper
 
+	# layout/application.html.erb
+
   def site_name
       # Change the value below between the quotes.
     "Real Barber"
@@ -38,6 +40,20 @@ module ApplicationHelper
     else
       "#{page_title} | #{site_name}"
     end
+  end
+
+  #devise form helpers
+
+  def resource_name
+    :user
+  end
+ 
+  def resource
+    @resource ||= User.new
+  end
+ 
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
   end
 
 end
