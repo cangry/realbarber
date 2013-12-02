@@ -25,7 +25,7 @@ class HaircutPhotosController < ApplicationController
   # POST /haircut_photos.json
   def create
     @haircut_photo = HaircutPhoto.new(haircut_photo_params)
-
+    
     respond_to do |format|
       if @haircut_photo.save
         format.html { redirect_to @haircut_photo, notice: 'Haircut photo was successfully created.' }
@@ -34,7 +34,7 @@ class HaircutPhotosController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @haircut_photo.errors, status: :unprocessable_entity }
       end
-    end
+    end     
   end
 
   # PATCH/PUT /haircut_photos/1
@@ -69,6 +69,6 @@ class HaircutPhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def haircut_photo_params
-      params.require(:haircut_photo).permit(:haircut_id, :url)
+      params.require(:haircut_photo).permit(:haircut_id, :url, :name)
     end
 end

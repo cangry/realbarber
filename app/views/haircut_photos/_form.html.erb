@@ -1,4 +1,4 @@
-<%= form_for(@haircut_photo) do |f| %>
+<%= form_for(@haircut_photo, :html => { :multipart => true }) do |f| %>
   <% if @haircut_photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@haircut_photo.errors.count, "error") %> prohibited this haircut_photo from being saved:</h2>
@@ -17,8 +17,12 @@
   </div>
   <div class="field">
     <%= f.label :url %><br>
-    <%= f.text_area :url %>
+    <%= f.text_field :url %>
   </div>
+  <div class="field">
+    <%= f.file_field :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

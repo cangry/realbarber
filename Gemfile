@@ -10,6 +10,10 @@ gem 'devise'
 
 gem 'high_voltage'
 
+gem "paperclip", "~> 3.5.2"
+
+gem 'aws-sdk'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
