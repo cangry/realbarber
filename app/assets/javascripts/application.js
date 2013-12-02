@@ -12,6 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= bootstrap.min
+//= bootstrap.min.js
 //= require turbolinks
 //= require_tree . 
+
+
+$(function(){
+  $(".dropdown-toggle").dropdown('toggle'); // this works
+  $('#click').click(function(e){
+      e.stopPropagation();
+  });
+});

@@ -15,6 +15,7 @@ Realbarber::Application.routes.draw do
   resources :barbers
 
   devise_for :users
+
   get '/about'    => 'high_voltage/pages#show', id: 'about'
   get '/contact'  => 'high_voltage/pages#show', id: 'contact'
   get '/privacy'  => 'high_voltage/pages#show', id: 'privacy'
@@ -22,6 +23,8 @@ Realbarber::Application.routes.draw do
   get '/support'    => 'high_voltage/pages#show', id: 'support'
 
   get '/home', to: redirect('/')
+
+  get 'users/sign_up' => 'devise/registrations#new', id: 'sign_up'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
