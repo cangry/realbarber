@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Haircut:</strong>
+  <%= @haircut_photo.haircut_id %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @haircut_photo.url %>
+</p>
+
+<%= link_to 'Edit', edit_haircut_photo_path(@haircut_photo) %> |
+<%= link_to 'Back', haircut_photos_path %>

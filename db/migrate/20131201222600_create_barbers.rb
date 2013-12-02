@@ -1,6 +1,7 @@
 class CreateBarbers < ActiveRecord::Migration
   def change
     create_table :barbers do |t|
+      t.integer :user_id
       t.string :name
       t.text :bio
       t.string :address1

@@ -1,0 +1,29 @@
+<h1>Listing haircut_photos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Haircut</th>
+      <th>Url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @haircut_photos.each do |haircut_photo| %>
+      <tr>
+        <td><%= haircut_photo.haircut_id %></td>
+        <td><%= haircut_photo.url %></td>
+        <td><%= link_to 'Show', haircut_photo %></td>
+        <td><%= link_to 'Edit', edit_haircut_photo_path(haircut_photo) %></td>
+        <td><%= link_to 'Destroy', haircut_photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Haircut photo', new_haircut_photo_path %>
