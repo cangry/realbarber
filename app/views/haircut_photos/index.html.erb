@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Haircut</th>
-      <th>Url</th>
+      <th>Is default</th>
       <th></th>
       <th></th>
       <th></th>
@@ -15,7 +15,7 @@
     <% @haircut_photos.each do |haircut_photo| %>
       <tr>
         <td><%= haircut_photo.haircut_id %></td>
-        <td><%= haircut_photo.url %></td>
+        <td><%= haircut_photo.is_default %></td>
         <td><%= link_to 'Show', haircut_photo %></td>
         <td><%= link_to 'Edit', edit_haircut_photo_path(haircut_photo) %></td>
         <td><%= link_to 'Destroy', haircut_photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

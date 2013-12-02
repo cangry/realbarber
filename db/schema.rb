@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202150951) do
+ActiveRecord::Schema.define(version: 20131202220929) do
 
   create_table "barber_types", force: true do |t|
     t.integer  "barber_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20131202150951) do
 
   create_table "haircut_photos", force: true do |t|
     t.integer  "haircut_id"
-    t.string   "url"
+    t.boolean  "is_default"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name_file_name"

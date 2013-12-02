@@ -2,8 +2,8 @@
 
 one:
   haircut_id: 1
-  url: MyText
+  is_default: false
 
 two:
   haircut_id: 1
-  url: MyText
+  is_default: false

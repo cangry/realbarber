@@ -18,7 +18,7 @@ class HaircutPhotosControllerTest < ActionController::TestCase
 
   test "should create haircut_photo" do
     assert_difference('HaircutPhoto.count') do
-      post :create, haircut_photo: { haircut_id: @haircut_photo.haircut_id, url: @haircut_photo.url }
+      post :create, haircut_photo: { haircut_id: @haircut_photo.haircut_id, is_default: @haircut_photo.is_default }
     end
 
     assert_redirected_to haircut_photo_path(assigns(:haircut_photo))
@@ -35,7 +35,7 @@ class HaircutPhotosControllerTest < ActionController::TestCase
   end
 
   test "should update haircut_photo" do
-    patch :update, id: @haircut_photo, haircut_photo: { haircut_id: @haircut_photo.haircut_id, url: @haircut_photo.url }
+    patch :update, id: @haircut_photo, haircut_photo: { haircut_id: @haircut_photo.haircut_id, is_default: @haircut_photo.is_default }
     assert_redirected_to haircut_photo_path(assigns(:haircut_photo))
   end
 
