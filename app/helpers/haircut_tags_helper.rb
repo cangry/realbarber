@@ -1,0 +1,2 @@
+module HaircutTagsHelper
+end

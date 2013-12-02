@@ -11,7 +11,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131201041419) do
+ActiveRecord::Schema.define(version: 20131202021820) do
+
+  create_table "barber_types", force: true do |t|
+    t.integer  "barber_id"
+    t.integer  "type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "barbers", force: true do |t|
+    t.string   "name"
+    t.text     "bio"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.text     "avatar_url"
+    t.text     "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "haircut_pictures", force: true do |t|
+    t.integer  "haircut_id"
+    t.text     "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "haircut_tags", force: true do |t|
+    t.integer  "haircut_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "haircuts", force: true do |t|
+    t.integer  "barber_id"
+    t.string   "title"
+    t.integer  "view_count"
+    t.integer  "like_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

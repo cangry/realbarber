@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Haircut:</strong>
+  <%= @haircut_tag.haircut_id %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @haircut_tag.tag_id %>
+</p>
+
+<%= link_to 'Edit', edit_haircut_tag_path(@haircut_tag) %> |
+<%= link_to 'Back', haircut_tags_path %>

@@ -1,0 +1,25 @@
+<%= form_for(@barber_type) do |f| %>
+  <% if @barber_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@barber_type.errors.count, "error") %> prohibited this barber_type from being saved:</h2>
+
+      <ul>
+      <% @barber_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :barber_id %><br>
+    <%= f.number_field :barber_id %>
+  </div>
+  <div class="field">
+    <%= f.label :type_id %><br>
+    <%= f.number_field :type_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

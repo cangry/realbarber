@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Barber:</strong>
+  <%= @haircut.barber_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @haircut.title %>
+</p>
+
+<p>
+  <strong>View count:</strong>
+  <%= @haircut.view_count %>
+</p>
+
+<p>
+  <strong>Like count:</strong>
+  <%= @haircut.like_count %>
+</p>
+
+<%= link_to 'Edit', edit_haircut_path(@haircut) %> |
+<%= link_to 'Back', haircuts_path %>
