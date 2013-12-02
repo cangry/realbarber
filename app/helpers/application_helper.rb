@@ -1,14 +1,14 @@
 module ApplicationHelper
-	
+
   def site_name
       # Change the value below between the quotes.
-    "Project Name"
+    "Real Barber"
   end
 
     def site_url
     if Rails.env.production?
         # Place your production URL in the quotes below
-        "http://http://www.example.com/"
+        "http://www.realbarber.com/"
     else
         # Our dev & test URL
         "http://localhost:3000"
