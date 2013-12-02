@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  barber_id: 1
+  type_id: 1
+
+two:
+  barber_id: 1
+  type_id: 1

@@ -1,0 +1,2 @@
+module HaircutPicturesHelper
+end

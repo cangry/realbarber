@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Barber:</strong>
+  <%= @barber_type.barber_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @barber_type.type_id %>
+</p>
+
+<%= link_to 'Edit', edit_barber_type_path(@barber_type) %> |
+<%= link_to 'Back', barber_types_path %>

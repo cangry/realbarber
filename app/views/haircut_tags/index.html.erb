@@ -1,0 +1,29 @@
+<h1>Listing haircut_tags</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Haircut</th>
+      <th>Tag</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @haircut_tags.each do |haircut_tag| %>
+      <tr>
+        <td><%= haircut_tag.haircut_id %></td>
+        <td><%= haircut_tag.tag_id %></td>
+        <td><%= link_to 'Show', haircut_tag %></td>
+        <td><%= link_to 'Edit', edit_haircut_tag_path(haircut_tag) %></td>
+        <td><%= link_to 'Destroy', haircut_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Haircut tag', new_haircut_tag_path %>

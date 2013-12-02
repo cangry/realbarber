@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @barber.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @barber.bio %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @barber.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @barber.address2 %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @barber.zip %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @barber.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @barber.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @barber.country %>
+</p>
+
+<p>
+  <strong>Avatar url:</strong>
+  <%= @barber.avatar_url %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @barber.status %>
+</p>
+
+<%= link_to 'Edit', edit_barber_path(@barber) %> |
+<%= link_to 'Back', barbers_path %>

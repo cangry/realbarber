@@ -1,0 +1,29 @@
+<h1>Listing barber_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Barber</th>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @barber_types.each do |barber_type| %>
+      <tr>
+        <td><%= barber_type.barber_id %></td>
+        <td><%= barber_type.type_id %></td>
+        <td><%= link_to 'Show', barber_type %></td>
+        <td><%= link_to 'Edit', edit_barber_type_path(barber_type) %></td>
+        <td><%= link_to 'Destroy', barber_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Barber type', new_barber_type_path %>

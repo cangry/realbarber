@@ -1,5 +1,19 @@
 Realbarber::Application.routes.draw do
 
+  resources :tags
+
+  resources :haircut_tags
+
+  resources :haircut_pictures
+
+  resources :haircuts
+
+  resources :types
+
+  resources :barber_types
+
+  resources :barbers
+
   devise_for :users
 
   get '/about'    => 'high_voltage/pages#show', id: 'about'
