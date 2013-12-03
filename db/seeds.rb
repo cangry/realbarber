@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+HaircutType.create([{title: "Short"},{title: "Medium"},{title: "Long"},{title: "Braids"},{title: "Eyebrows"},{title: "Stash & Bearb"}])

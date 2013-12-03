@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<%= image_tag @haircut_photo.name.url %>
+	<%= image_tag @haircut_photo.name.url(:medium) %>
+	<%= image_tag @haircut_photo.name.url(:thumb) %>
+</p>
+
+<p>
+  <strong>Haircut:</strong>
+  <%= @haircut_photo.haircut_id %>
+</p>
+
+<p>
+  <strong>Is default:</strong>
+  <%= @haircut_photo.is_default %>
+</p>
+
+<%= link_to 'Edit', edit_haircut_photo_path(@haircut_photo) %> |
+<%= link_to 'Back', haircut_photos_path %>

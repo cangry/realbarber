@@ -1,0 +1,28 @@
+<%= form_for(@haircut_photo, :html => { :multipart => true }) do |f| %>
+  <% if @haircut_photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@haircut_photo.errors.count, "error") %> prohibited this haircut_photo from being saved:</h2>
+
+      <ul>
+      <% @haircut_photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :haircut_id %><br>
+    <%= f.number_field :haircut_id %>
+  </div>
+   <div class="field">
+    <%= f.label :is_default %><br>
+    <%= f.check_box :is_default %>
+  <div class="field">
+    <%= f.file_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

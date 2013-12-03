@@ -1,14 +1,14 @@
 Realbarber::Application.routes.draw do
 
+  resources :haircut_photos
+
+  resources :haircut_types
+
   resources :tags
 
   resources :haircut_tags
 
-  resources :haircut_pictures
-
   resources :haircuts
-
-  resources :types
 
   resources :barber_types
 
