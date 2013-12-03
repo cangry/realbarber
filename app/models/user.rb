@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
 	# This is in addition to a real persisted field like 'username'
 	attr_accessor :login
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -23,4 +22,7 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
    end
+
+   has_attached_file :avatar, :styles => { :medium => "300", :thumb => "50x50" }, :default_url => "/images/:style/missing.png"  
+
 end
