@@ -3,4 +3,6 @@ class Haircut < ActiveRecord::Base
 	has_many :haircut_photos
 	has_many :haircut_tags
 	has_many :tags, :through => :haircut_tags
+	has_many :likes
+	has_many :users, :through => :likes
 end

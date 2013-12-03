@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :barber
+  has_many :likes
+  has_many :haircuts, :through => :likes
 
   validates :username,
   :uniqueness => {
@@ -23,6 +25,6 @@ class User < ActiveRecord::Base
     end
    end
 
-   has_attached_file :avatar, :styles => { :medium => "300", :thumb => "50x50" }, :default_url => "/images/:style/missing.png"  
+   has_attached_file :avatar, :styles => { :medium => "300", :thumb => "30x30" }, :default_url => "/images/:style/missing.png"  
 
 end

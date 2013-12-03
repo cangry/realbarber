@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20131203145941) do
 
   create_table "barbers", force: true do |t|
     t.integer  "user_id"
-    t.string   "name"
     t.text     "bio"
     t.string   "address1"
     t.string   "address2"
@@ -30,7 +29,6 @@ ActiveRecord::Schema.define(version: 20131203145941) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
-    t.text     "avatar_url"
     t.text     "status"
     t.datetime "created_at"
     t.datetime "updated_at"

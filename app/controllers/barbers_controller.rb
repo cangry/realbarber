@@ -69,6 +69,6 @@ class BarbersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def barber_params
-      params.require(:barber).permit(:name, :bio, :address1, :address2, :zip, :city, :state, :country, :avatar_url, :status)
+      params.require(:barber).permit(:user_id, :bio, :address1, :address2, :zip, :city, :state, :country, :status)
     end
 end
