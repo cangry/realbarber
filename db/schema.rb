@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203064453) do
+ActiveRecord::Schema.define(version: 20131203145941) do
 
   create_table "barber_types", force: true do |t|
     t.integer  "barber_id"
-    t.integer  "type_id"
+    t.integer  "haircut_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "barbers", force: true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.text     "bio"
     t.string   "address1"
@@ -33,7 +34,6 @@ ActiveRecord::Schema.define(version: 20131203064453) do
     t.text     "status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "haircut_photos", force: true do |t|
@@ -45,13 +45,6 @@ ActiveRecord::Schema.define(version: 20131203064453) do
     t.string   "name_content_type"
     t.integer  "name_file_size"
     t.datetime "name_updated_at"
-  end
-
-  create_table "haircut_pictures", force: true do |t|
-    t.integer  "haircut_id"
-    t.text     "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "haircut_tags", force: true do |t|
@@ -76,14 +69,15 @@ ActiveRecord::Schema.define(version: 20131203064453) do
     t.datetime "updated_at"
   end
 
-  create_table "tags", force: true do |t|
-    t.string   "title"
+  create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "haircut_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "types", force: true do |t|
-    t.string   "name"
+  create_table "tags", force: true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
