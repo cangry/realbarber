@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203145941) do
+ActiveRecord::Schema.define(version: 20131203172547) do
 
   create_table "barber_types", force: true do |t|
     t.integer  "barber_id"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20131203145941) do
     t.string   "state"
     t.string   "country"
     t.text     "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.integer  "user_id"
+    t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

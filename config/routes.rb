@@ -1,5 +1,7 @@
 Realbarber::Application.routes.draw do
 
+  resources :customers
+
   resources :haircut_photos
 
   resources :haircut_types
