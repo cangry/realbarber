@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= bootstrap.min.js
-//= require turbolinks
+//= masonry.pkgd.min.js
 //= require_tree . 
 
 
@@ -23,3 +23,4 @@ $(function(){
       e.stopPropagation();
   });
 });
+
