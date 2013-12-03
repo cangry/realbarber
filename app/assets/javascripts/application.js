@@ -12,13 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= bootstrap.min.js
-//= masonry.pkgd.min.js
+//= require bootstrap.min.js
+//= require masonry/jquery.masonry
 //= require_tree . 
 
 
 $(function(){
-  $(".dropdown-toggle").dropdown('toggle'); // this works
+  $('[data-toggle="dropdown"]').parent().removeClass('open'); // this works
   $('#click').click(function(e){
       e.stopPropagation();
   });

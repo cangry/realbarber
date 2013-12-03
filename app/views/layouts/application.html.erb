@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link href='http://fonts.googleapis.com/css?family=Yellowtail|Fredericka+the+Great|Lily+Script+One|Oleo+Script+Swash+Caps|Molle:400italic|Lobster|Damion' rel='stylesheet' type='text/css'>
 	<!-- devise notice alert:
 
 	<p class="notice"><%= notice %></p>
@@ -19,6 +19,9 @@
 
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= javascript_include_tag "jquery.masonry.min" %>
+
   <%= csrf_meta_tags %>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,113 +32,116 @@
   <a href="#Top"></a>
 </head>
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top navbar-static-top" role="navigation">
+<div id="wrap">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> <!-- had navbar-static-top-->
   <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <%= link_to site_name, site_url, :class => "navbar-brand-centered" %>
-  </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  
-
-    <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse <b class="caret"></b></a>
-        <ul id="dropdown" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          <li style="padding-left:15px;"><b>Haircuts</b></li>
-          <li><a tabindex="-1" href="#">Short</a></li>
-          <li><a tabindex="-1" href="#">Medium</a></li>
-          <li><a tabindex="-1" href="#">Long</a></li>
-          <li><a tabindex="-1" href="#">Braids</a></li>
-          <li><a tabindex="-1" href="#">Eyebrows</a></li>
-          <li><a tabindex="-1" href="#">Stash and Beard</a></li>
-          <li class="divider"></li>
-          <li><a tabindex="-1" href="#"><b>Barbers</b></a></li>
-          <li class="divider"></li>
-          <li><a tabindex="-1" href="#"><b>Deals</b></a></li>
-          <li class="divider"></li>
-          <li><a tabindex="-1" href="#"><b>Profile</b></a></li>
-        </ul>
-      </li>
-    </ul>
-
-    <!-- Search Form -->
-    <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search"><b class="caret"></b></a>
-        <ul id="dropdown" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-
-    <form class="navbar-form navbar-right" role="search">
-      <div class="input-group">
-        <input type="text" style="width: 300px;" class="form-control pull-left" placeholder="Search" id="query" name="query" value="">
-        <div class="input-group-btn">
-      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to site_name, site_url, :class => "navbar-brand" %>
     </div>
-      </div>
-      </ul>
-     </li>
-    </ul>
 
-    <!-- Sign In Form -->
-    </form>
-    <% if user_signed_in? %>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Browse <b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="browseDropdown">
+            <li style="padding-left:15px;"><b>Haircuts</b></li>
+            <li><a tabindex="-1" href="#">Short</a></li>
+            <li><a tabindex="-1" href="#">Medium</a></li>
+            <li><a tabindex="-1" href="#">Long</a></li>
+            <li><a tabindex="-1" href="#">Braids</a></li>
+            <li><a tabindex="-1" href="#">Eyebrows</a></li>
+            <li><a tabindex="-1" href="#">Stash and Beard</a></li>
+            <li class="divider"></li>
+            <li><a tabindex="-1" href="#"><b>Barbers</b></a></li>
+            <li class="divider"></li>
+            <li><a tabindex="-1" href="#"><b>Deals</b></a></li>
+            <li class="divider"></li>
+            <li><a tabindex="-1" href="#"><b>Profile</b></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Search Form -->
       <ul class="nav navbar-nav navbar-right">
-        <li style="padding:15px;">
-          <%= current_user.email %> 
-        </li>
-        <li class="nav navbar-nav">
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-        </li>
-      </ul>
-    
-    <% else %>
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <%= link_to "Register", users_sign_up_path %>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Sign In <b class="caret"></b>
-        </a>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-search"><b class="caret"></b></a>
+          <ul id="dropdown" class="dropdown-menu" role="menu" aria-labelledby="dropdownSearch">
 
-        
-        <ul class="dropdown-menu" style="padding:15px;">
-          <li>
-            <%= form_for("user", :url => user_session_path) do |f| %>
-            <div>
-              Email   
-            </div>
-            <div>
-               <%= f.text_field :email, :size=>"30" %>
-            </div>
-             <div>Password<br/><%= f.password_field :password, :size=>"30" %>
-            </div>
-            <div>
-             <span>
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-             <span/>
-             <span style="margin-left:10%;">
-              <%= f.submit 'Sign in' %>
-             </span>
-            </div>
-            <div style="text-align:center;">
-             <%= link_to "Forgot your password?", new_password_path('user') %>
-            </div>
-            <% end %>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="input-group">
+          <input type="text" style="width: 300px;" class="form-control pull-left" placeholder="Search" id="query" name="query" value="">
+          <div class="input-group-btn">
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+
+      </div>
+        </div>
+        </ul>
+       </li>
+      </ul>
+
+      <!-- Sign In Form -->
+      </form>
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li style="padding:15px;">
+            <%= current_user.email %> 
+          </li>
+          <li class="nav navbar-nav">
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
           </li>
         </ul>
-      </li>
-    </ul>
-    <% end %>
-  </div><!-- /.navbar-collapse -->
+      
+      <% else %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "Register", users_sign_up_path %>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Sign In <b class="caret"></b>
+          </a>
+
+          
+          <ul class="dropdown-menu" style="padding:15px;">
+            <li>
+              <%= form_for("user", :url => user_session_path) do |f| %>
+              <div>
+                Email   
+              </div>
+              <div>
+                 <%= f.text_field :email, :size=>"30" %>
+              </div>
+               <div>Password<br/><%= f.password_field :password, :size=>"30" %>
+              </div>
+              <div>
+               <span>
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+               <span/>
+               <span style="margin-left:10%;">
+                <%= f.submit 'Sign in' %>
+               </span>
+              </div>
+              <div style="text-align:center;">
+               <%= link_to "Forgot your password?", new_password_path('user') %>
+              </div>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <% end %>
+    </div> <!--navbar-collapse -->
+  </div><!--container-->
 </nav>
 
   <% if current_page?(root_path) %>
@@ -148,27 +154,39 @@
     <% end %>
   <% else %>
     <div class="container">
+
   <% end %>
   <%= yield %>
-  <footer>
-    <hr>
-      <p class="pull-right">
-        <%= link_to '<span class="glyphicon-class glyphicon glyphicon-chevron-up"></span> Back to top'.html_safe, '#Top' %>
-      </p>
-      <p>
-        &copy; <%= Time.now.year %> <%= site_name %> 
-        &bull;
-        <%= link_to "About", about_path %></li>
-        &bull;
-        <%= link_to "Privacy", privacy_path %></li>
-        &bull;
-        <%= link_to "Terms", terms_path %></li>
-        &bull;
-        <%= link_to "Support", support_path %></li>
-        &bull;
-        <%= link_to "Contact", contact_path %></li>
-      </p>
-    </footer>
+  
   </div> <!-- /container -->
+
+<!-- Static bottom navbar -->
+  <footer id="footer" class="navbar navbar-fixed-bottom navbar-default">
+      <div class="container">
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to "About", about_path %>
+            </li>
+            <li>
+              <%= link_to "Privacy", privacy_path %>
+            </li>
+            <li>
+              <%= link_to "Terms", terms_path %>
+            </li>
+            <li>
+              <%= link_to "Support", support_path %>
+            </li>
+            <li>
+              <%= link_to "Contact", contact_path %>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li style="padding:15px;">
+              &copy;<%= Time.now.year %> <%= site_name %>
+            </li>
+          </ul>
+      </div>
+  </footer>
+</div> <!--WRAP-->
 </body>
 </html>

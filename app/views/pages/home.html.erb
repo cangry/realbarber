@@ -6,20 +6,85 @@
       <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
   '.html_safe)%>
 
+
+  <div id="container">
+    <div class="masonryImage">
+        <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+    </div>
+         
+    <div class="masonryImage">
+        <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+    </div>
+         
+    <div class="masonryImage">
+        <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+    </div>
+ 
+    . . .
+     
+</div>
+    
+<script>
+  $(function(){
+ 
+    var $container = $('#container');
+   
+    $container.imagesLoaded( function(){
+      $container.masonry({
+        itemSelector : '.masonryImage'
+      });
+    });
+   
+  });
+</script>
+
+
+  <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+
+  <div class="box col3">
+
+  <div class="box col1">
+    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. </p>
+  </div>
+
+  <div class="box col2">
+    <p>
+      <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+    </p>
+  </div>
+  ...
+</div>
+
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+
+  <div class="box col3">
+
+  <div class="box col1">
+    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. </p>
+  </div>
+
+  <div class="box col2">
+    <p>
+      <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+    </p>
+  </div>
+  ...
+</div>
+
   <div class="container">
     <!-- Example row of columns -->
-    <div class="row">
-      <div class="col-md-4">
+    <div class="box col3">
+      <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
         <h2>Heading</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
         <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
       </div>
-      <div class="col-md-4">
+      <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
         <h2>Heading</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
         <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
      </div>
-      <div class="col-md-4">
+      <div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
         <h2>Heading</h2>
         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
         <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>

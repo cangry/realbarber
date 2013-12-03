@@ -4881,6 +4881,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 @media (max-width: 767px) {
+  .navbar-brand {left:50%;}
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
     border-color: #080808;
   }
