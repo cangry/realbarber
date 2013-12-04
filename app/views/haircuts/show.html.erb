@@ -1,15 +1,18 @@
 <p id="notice"><%= notice %></p>
-<%= @haircut_id %>
 
 <p>
   <strong>Barber:</strong>
-  <%= @haircut.barber_id %>
+  <%= @haircut.barber.user.username %>
 </p>
 
 <p>
   <strong>Title:</strong>
   <%= @haircut.title %>
 </p>
+
+	<% @photos.each do |photo| %>
+		<%= image_tag photo.name.url(:medium) %>
+	<% end %>
 
 <p>
   <strong>View count:</strong>

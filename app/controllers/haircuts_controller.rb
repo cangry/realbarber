@@ -10,13 +10,14 @@ class HaircutsController < ApplicationController
   # GET /haircuts/1
   # GET /haircuts/1.json
   def show
-    @haircut_id = params[:id]
+    @photos = @haircut.haircut_photos
   end
 
   # GET /haircuts/new
   def new
     @haircut = Haircut.new
-    @barber_id = params[:barber_id]
+    @barber_id = current_user.barber.id
+    3.times { @haircut.haircut_photos.build }
   end
 
   # GET /haircuts/1/edit
@@ -71,6 +72,7 @@ class HaircutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def haircut_params
-      params.require(:haircut).permit(:barber_id, :title, :view_count, :like_count)
+      params.require(:haircut).permit(:barber_id, :title, :view_count, :like_count,
+        :haircut_photos_attributes => [:is_default, :name])
     end
 end

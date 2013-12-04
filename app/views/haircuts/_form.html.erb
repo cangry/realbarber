@@ -1,26 +1,44 @@
-<%= form_for(@haircut) do |f| %>
-  <% if @haircut.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@haircut.errors.count, "error") %> prohibited this haircut from being saved:</h2>
+<%= form_for(@haircut, :html => { :multipart => true }) do |f| %>
+  <%= devise_error_messages! %>
 
-      <ul>
-      <% @haircut.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <fieldset>
+    <legend>Haircut Info</legend>
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
+    <%= f.hidden_field :barber_id , :value => @barber_id %>
+    <%= f.hidden_field :view_count , :value => 0 %>
+    <%= f.hidden_field :like_count , :value => 0 %>
+   
+  </fieldset>
 
-  <%= f.hidden_field :barber_id , :value => @barber_id %>
-  <%= f.hidden_field :view_count , :value => 0 %>
-  <%= f.hidden_field :like_count , :value => 0 %>
+  <fieldset>
+    <legend>Photos</legend>
+    <%= f.fields_for :haircut_photos do |b| %>
+      <div class="field">
+        <%= b.file_field :name %>
+      </div>
+       <div class="field">
+        <%= b.label :is_default %>
+        <%= radio_button_tag "is_default", nil %>
+      </div>
+    <% end %>
+  </fieldset>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset>
+    <legend>Tags</legend>
+    <%= f.fields_for :tags do |t| %>
+      <div class="field">
+        Tags (Comma separated) 
+        <%= t.text_field :title %>
+      </div>
+    <% end %>
+  </fieldset>
+  
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
