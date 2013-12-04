@@ -28,55 +28,8 @@
 
     <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %></div>
-  </fieldset>
 
-  <% if @barber != nil %>
-    <fieldset>
-    <legend>Barber Details</legend>
-    <%= f.fields_for :barber do |b| %>
-      <div class="field">
-        <%= b.label :user_id %><br>
-        <%= b.text_field :user_id %>
-      </div>
-
-      <div class="field">
-        toma
-        <%= b.label :bio %><br>
-        <%= b.text_area :bio %>
-      </div>
-      <div class="field">
-        <%= b.label :address1 %><br>
-        <%= b.text_field :address1 %>
-      </div>
-      <div class="field">
-        <%= b.label :address2 %><br>
-        <%= b.text_field :address2 %>
-      </div>
-      <div class="field">
-        <%= b.label :zip %><br>
-        <%= b.text_field :zip %>
-      </div>
-      <div class="field">
-        <%= b.label :city %><br>
-        <%= b.text_field :city %>
-      </div>
-      <div class="field">
-        <%= b.label :state %><br>
-        <%= b.text_field :state %>
-      </div>
-      <div class="field">
-        <%= b.label :country %><br>
-        <%= b.text_field :country %>
-      </div>
-      <div class="field">
-        <%= b.label :status %><br>
-        <%= b.text_area :status %>
-      </div>
-    <% end %>
-  </fieldset>
-
-  <% else %>
-    <fieldset>
+  <fieldset>
     <legend>Barber Details</legend>
     <%= f.fields_for :barber do |b| %>
       <div class="field">
@@ -118,8 +71,6 @@
       </div>
     <% end %>
   </fieldset>
-  <% end %>
-
   
   <div><%= f.submit "Update" %></div>
 <% end %>
