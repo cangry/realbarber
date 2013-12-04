@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :haircuts, :through => :likes
 
+  accepts_nested_attributes_for :barber
+
   validates :username,
   :uniqueness => {
     :case_sensitive => false

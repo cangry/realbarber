@@ -1,28 +1,76 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<% resource.build_barber unless resource.barber %>
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true, :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
+  <fieldset>
+    <legend>User Info</legend>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+    <div><%= f.label :username %><br />
+    <%= f.text_field :username %></div>
 
-  <div class="field">
-    <%= f.file_field :avatar %>
-  </div>
+    <div><%= f.label :email %><br />
+    <%= f.email_field :email, :autofocus => true %></div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <div class="field">
+      <%= f.file_field :avatar %>
+    </div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, :autocomplete => "off" %></div>
 
+    <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Barber Details</legend>
+    <%= f.fields_for :barber do |b| %>
+      <div class="field">
+        <%= b.label :user_id %><br>
+        <%= b.text_field :user_id %>
+      </div>
+
+      <div class="field">
+        <%= b.label :bio %><br>
+        <%= b.text_area :bio %>
+      </div>
+      <div class="field">
+        <%= b.label :address1 %><br>
+        <%= b.text_field :address1 %>
+      </div>
+      <div class="field">
+        <%= b.label :address2 %><br>
+        <%= b.text_field :address2 %>
+      </div>
+      <div class="field">
+        <%= b.label :zip %><br>
+        <%= b.text_field :zip %>
+      </div>
+      <div class="field">
+        <%= b.label :city %><br>
+        <%= b.text_field :city %>
+      </div>
+      <div class="field">
+        <%= b.label :state %><br>
+        <%= b.text_field :state %>
+      </div>
+      <div class="field">
+        <%= b.label :country %><br>
+        <%= b.text_field :country %>
+      </div>
+      <div class="field">
+        <%= b.label :status %><br>
+        <%= b.text_area :status %>
+      </div>
+    <% end %>
+  </fieldset>
   <div><%= f.submit "Update" %></div>
 <% end %>
 
