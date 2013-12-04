@@ -15,7 +15,8 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  
+  <div><%= label :zip, "Zip Code" %><br />
+  <%= text_field_tag "zip" %></div>
 
   <div><%= f.label :are_you_a_barber? %><span style="margin-left:7px;"></span><%= f.check_box :is_barber? %></div>
 
