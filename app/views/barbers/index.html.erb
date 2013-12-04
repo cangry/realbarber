@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
       <th>Bio</th>
       <th>Address1</th>
       <th>Address2</th>
@@ -11,7 +10,6 @@
       <th>City</th>
       <th>State</th>
       <th>Country</th>
-      <th>Avatar url</th>
       <th>Status</th>
       <th></th>
       <th></th>
@@ -22,7 +20,6 @@
   <tbody>
     <% @barbers.each do |barber| %>
       <tr>
-        <td><%= barber.name %></td>
         <td><%= barber.bio %></td>
         <td><%= barber.address1 %></td>
         <td><%= barber.address2 %></td>
@@ -30,7 +27,6 @@
         <td><%= barber.city %></td>
         <td><%= barber.state %></td>
         <td><%= barber.country %></td>
-        <td><%= barber.avatar_url %></td>
         <td><%= barber.status %></td>
         <td><%= link_to 'Show', barber %></td>
         <td><%= link_to 'Edit', edit_barber_path(barber) %></td>

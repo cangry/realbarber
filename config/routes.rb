@@ -1,5 +1,7 @@
 Realbarber::Application.routes.draw do
 
+  resources :customers
+
   resources :haircut_photos
 
   resources :haircut_types
@@ -14,7 +16,8 @@ Realbarber::Application.routes.draw do
 
   resources :barbers
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "users/registrations" }
+  
 
   get '/about'    => 'high_voltage/pages#show', id: 'about'
   get '/contact'  => 'high_voltage/pages#show', id: 'contact'

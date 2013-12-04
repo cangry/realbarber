@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :barber
+  has_one :customer
+  has_many :likes
+  has_many :haircuts, :through => :likes
+
+  accepts_nested_attributes_for :barber
 
   validates :username,
   :uniqueness => {
