@@ -118,13 +118,10 @@
           <ul class="dropdown-menu" style="padding:15px;">
             <li>
               <%= form_for("user", :url => user_session_path) do |f| %>
-              <div>
-                Email   
-              </div>
-              <div>
+              <div><%= f.label :email_or_username, "Email or Username" %><br />
                  <%= f.text_field :login, :size=>"30" %>
               </div>
-               <div>Password<br/><%= f.password_field :password, :size=>"30" %>
+               <div><%= f.label :password %><br /><%= f.password_field :password, :size=>"30" %>
               </div>
               <div>
                <span>
