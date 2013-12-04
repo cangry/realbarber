@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.save
       #Here we can check if the registration is for Barber or Customer
       #Create empty barber
-      Barber.create! :user_id => resource.id
+      Barber.create! :user_id => resource.id, :zip => params[:zip]
 
       yield resource if block_given?
       if resource.active_for_authentication?
