@@ -10,11 +10,13 @@ class HaircutsController < ApplicationController
   # GET /haircuts/1
   # GET /haircuts/1.json
   def show
+    @haircut_id = params[:id]
   end
 
   # GET /haircuts/new
   def new
     @haircut = Haircut.new
+    @barber_id = params[:barber_id]
   end
 
   # GET /haircuts/1/edit
