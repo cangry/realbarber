@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203172547) do
+ActiveRecord::Schema.define(version: 20131204063533) do
 
   create_table "barber_types", force: true do |t|
     t.integer  "barber_id"
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20131203172547) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean  "is_barber"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
