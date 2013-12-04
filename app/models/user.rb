@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
     end
    end
 
-   has_attached_file :avatar, :styles => { :medium => "300", :thumb => "30x30" }, :default_url => "/images/:style/missing.png"  
+   has_attached_file :avatar, :styles => { :medium => "300", :thumb => "30x30" },
+    :url => "/assets/user/avatar/:id/:style/:filename",
+    :path => ":rails_root/public/assets/user/avatar/:id/:style/:filename"
+    validates_attachment_content_type :avatar, :content_type => /image/
 
 end

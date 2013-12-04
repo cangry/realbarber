@@ -15,6 +15,7 @@
     <%= f.email_field :email, :autofocus => true %></div>
 
     <div class="field">
+      <%= image_tag current_user.avatar.url(:medium)%>
       <%= f.file_field :avatar %>
     </div>
 
@@ -29,7 +30,8 @@
     <%= f.password_field :password_confirmation %></div>
   </fieldset>
 
-  <fieldset>
+  <% if @barber != nil %>
+    <fieldset>
     <legend>Barber Details</legend>
     <%= f.fields_for :barber do |b| %>
       <div class="field">
@@ -38,6 +40,7 @@
       </div>
 
       <div class="field">
+        toma
         <%= b.label :bio %><br>
         <%= b.text_area :bio %>
       </div>
@@ -71,6 +74,53 @@
       </div>
     <% end %>
   </fieldset>
+
+  <% else %>
+    <fieldset>
+    <legend>Barber Details</legend>
+    <%= f.fields_for :barber do |b| %>
+      <div class="field">
+        <%= b.label :user_id %><br>
+        <%= b.text_field :user_id %>
+      </div>
+
+      <div class="field">
+        <%= b.label :bio %><br>
+        <%= b.text_area :bio, :value => @barber.bio %>
+      </div>
+      <div class="field">
+        <%= b.label :address1 %><br>
+        <%= b.text_field :address1,:value => @barber.address1 %>
+      </div>
+      <div class="field">
+        <%= b.label :address2 %><br>
+        <%= b.text_field :address2, :value => @barber.address2 %>
+      </div>
+      <div class="field">
+        <%= b.label :zip %><br>
+        <%= b.text_field :zip, :value => @barber.zip %>
+      </div>
+      <div class="field">
+        <%= b.label :city %><br>
+        <%= b.text_field :city, :value => @barber.city %>
+      </div>
+      <div class="field">
+        <%= b.label :state %><br>
+        <%= b.text_field :state, :value => @barber.state %>
+      </div>
+      <div class="field">
+        <%= b.label :country %><br>
+        <%= b.text_field :country, :value => @barber.country %>
+      </div>
+      <div class="field">
+        <%= b.label :status %><br>
+        <%= b.text_area :status, :value => @barber.status %>
+      </div>
+    <% end %>
+  </fieldset>
+  <% end %>
+
+  
   <div><%= f.submit "Update" %></div>
 <% end %>
 

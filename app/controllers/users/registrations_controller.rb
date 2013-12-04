@@ -19,4 +19,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render "edit"
     end
   end
+
+  def after_sign_up_path_for(resource)
+    '/users/edit'
+  end
+
+  def edit
+    #passes value to devise/registrations/edit.html.erd 
+    @barber = Barber.where("user_id = ?", current_user.id)
+  end
 end
