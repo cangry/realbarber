@@ -32,11 +32,9 @@
   <fieldset>
     <legend>Barber Details</legend>
     <%= f.fields_for :barber do |b| %>
-      <div class="field">
-        <%= b.label :user_id %><br>
-        <%= b.text_field :user_id %>
-      </div>
-
+      
+      <%= b.hidden_field :user_id %>
+    
       <div class="field">
         <%= b.label :bio %><br>
         <%= b.text_area :bio, :value => @barber.bio %>
