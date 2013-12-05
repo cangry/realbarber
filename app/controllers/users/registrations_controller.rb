@@ -8,6 +8,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       #Create empty barber
       Barber.create! :user_id => resource.id, :zip => params[:zip]
 
+      #@resource = resource
+
+      Notifier.welcome_email(resource).deliver
+
       yield resource if block_given?
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
@@ -23,6 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       respond_with resource
     end
   end
+
 
   def update
     # For Rails 4
