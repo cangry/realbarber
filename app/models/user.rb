@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :haircuts, :through => :likes
 
   accepts_nested_attributes_for :barber
+  accepts_nested_attributes_for :customer
 
   validates :username,
   :uniqueness => {

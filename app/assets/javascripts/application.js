@@ -14,6 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap.min.js
 //= require masonry/jquery.masonry
+//= require masonry/jquery.event-drag
+//= require masonry/jquery.imagesloaded.min
+//= require masonry/jquery.infinitescroll.min
+//= require masonry/modernizr-transitions
 //= require_tree . 
 
 
@@ -28,12 +32,19 @@ $(function(){
 
 // Masonry js code
 
-$(document).ready( function() {  var $container = $('#container');
-	// initialize
-	$container.masonry({
-	  columnWidth: 300,
-	  itemSelector: '.item'
+$(document).ready(function() {
+var container = $('#masonry-container');
+
+	container.imagesLoaded( function () {
+		container.masonry({
+		  itemSelector: '.box',
+		  // set columnWidth a fraction of the container width
+		  columnWidth: 100, 
+		  isFitWidth: true,
+		});
+
 	});
+		
 });
 
 

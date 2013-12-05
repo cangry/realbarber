@@ -1,21 +1,19 @@
-<script src="/path/to/masonry.pkgd.min.js"></script>
 
+
+
+    <div id="masonry-container" class="item transitions-enabled infinite-scroll clearfix">
+	   
   <% @haircut_photos.each do |haircut_photo| %>
-
-    <div id="container masonry-container" class="item transitions-enabled infinite-scroll clearfix">
-
-      <div class="box col3">
-
-        <p>
-
-         <%= image_tag haircut_photo.name(:medium)%>
-
-        </p>
-    
-      </div>
-       <% end %>
+    <div class="box col3">
+      
+        <%= image_tag haircut_photo.name(:medium)%>
+        <br/>
+        <p>Lorem ipsum</p>
+  
     </div>
-
+  <% end %>
+    
+  </div>
 
 
 <%= link_to 'New Haircut photo', new_haircut_photo_path %>
