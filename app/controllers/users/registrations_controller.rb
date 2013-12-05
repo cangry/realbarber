@@ -6,13 +6,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.save
       #Here we can check if the registration is for Barber or Customer
       #Create empty barber
-      Barber.create! :user_id => resource.id, :zip => params[:zip]
+      is_barber = true
+      if params[:is_barber]
+        Barber.create! :user_id => resource.id, :zip => params[:zip]
+      else
+        Customer.create! :user_id => resource.id, :zip => params[:zip]
+        is_barber = false
+      end
 
       yield resource if block_given?
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         sign_up(resource_name, resource)
-        respond_with resource, :location => after_sign_up_path_for(resource)
+        respond_with resource, :location => after_sign_up_path_for(resource,)
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
         expire_data_after_sign_in!
