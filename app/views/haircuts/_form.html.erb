@@ -30,12 +30,12 @@
 
   <fieldset>
     <legend>Tags</legend>
-    <%= f.fields_for :tags do |t| %>
+    
       <div class="field">
         Tags (Comma separated) 
-        <%= t.text_field :title %>
+        <%= text_field_tag :tag_title %>
       </div>
-    <% end %>
+    
   </fieldset>
   
     <div class="actions">

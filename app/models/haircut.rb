@@ -7,4 +7,6 @@ class Haircut < ActiveRecord::Base
 	has_many :users, :through => :likes
 
 	accepts_nested_attributes_for :haircut_photos
+	accepts_nested_attributes_for :tags
+
 end
